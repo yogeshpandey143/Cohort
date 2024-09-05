@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+</head>
+<body>
+Hello world
+<div id="posts"></div>
+<br>
+<hr>
+<div id="mypost"></div>
+
+
+
+
+  <script>
+// fetch Api
+async function fetchPosts() {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+      const data = await res.json();
+      document.getElementById("posts").innerHTML = data.title;
+    }
+
+    fetchPosts();
+
+
+
+    // axios-> it is same as the fetch Api 
+
+
+    async function getRecentPosts() {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+      document.getElementById("mypost").innerHTML = res.data.body;
+    } 
+    getRecentPosts();
+  </script>
+  
+</body>
+</html>
